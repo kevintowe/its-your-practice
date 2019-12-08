@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import {
   redirectUnauthorizedTo,
   redirectLoggedInTo,
-  canActivate,
   AngularFireAuthGuard
 } from '@angular/fire/auth-guard';
 
