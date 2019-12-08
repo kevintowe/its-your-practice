@@ -21,7 +21,10 @@
               "apps/its-your-practice/src/favicon.ico",
               "apps/its-your-practice/src/assets"
             ],
-            "styles": ["apps/its-your-practice/src/styles.css"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "apps/its-your-practice/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -80,7 +83,10 @@
               "apps/its-your-practice/tsconfig.app.json",
               "apps/its-your-practice/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/its-your-practice/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/its-your-practice/**"
+            ]
           }
         },
         "test": {
@@ -114,8 +120,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/its-your-practice-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/its-your-practice-e2e/**"]
+            "tsConfig": [
+              "apps/its-your-practice-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/its-your-practice-e2e/**"
+            ]
           }
         }
       }
