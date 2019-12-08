@@ -1,0 +1,18 @@
+{
+  "npmScope": "its-your-practice",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "its-your-practice-e2e": {
+      "tags": []
+    },
+    "its-your-practice": {
+      "tags": []
+    }
+  }
+}
