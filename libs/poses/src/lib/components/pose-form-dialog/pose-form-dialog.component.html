@@ -1,0 +1,56 @@
+<form [formGroup]="form">
+  <div class="form-container">
+    <mat-form-field>
+      <input matInput placeholder="Pose Name" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Sanskrit Name"
+        formControlName="sanskritName"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Abbriveation" formControlName="abbr" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+        matInput
+        placeholder="Description"
+        formControlName="description"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type" multiple>
+        <div *ngFor="let type of poseTypes">
+          <mat-option *ngFor="let item of type | keyvalue" [value]="item.value">
+            {{ item.key }}
+          </mat-option>
+        </div>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Ashtanga Series</mat-label>
+      <mat-select formControlName="ashtangaSeries" name="ashtangaSeries">
+        <mat-option *ngFor="let series of _ashtangaSeries" [value]="series">
+          {{ series }}, {{ _seriesName[series - 1] }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onSubmit()"
+      [disabled]="form.invalid"
+    >
+      {{ newPose ? 'Submit New Pose' : 'Save Pose' }}
+    </button>
+  </div>
+</form>

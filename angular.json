@@ -149,6 +149,87 @@
         }
       },
       "schematics": {}
+    },
+    "shared": {
+      "projectType": "library",
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "prefix": "its-your-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/tsconfig.lib.json",
+              "libs/shared/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "tsConfig": "libs/shared/tsconfig.spec.json",
+            "setupFile": "libs/shared/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "poses": {
+      "projectType": "library",
+      "root": "libs/poses",
+      "sourceRoot": "libs/poses/src",
+      "prefix": "its-your-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/poses/tsconfig.lib.json",
+              "libs/poses/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/poses/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/poses/jest.config.js",
+            "tsConfig": "libs/poses/tsconfig.spec.json",
+            "setupFile": "libs/poses/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "state": {
+      "projectType": "library",
+      "root": "libs/state",
+      "sourceRoot": "libs/state/src",
+      "prefix": "its-your-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/state/tsconfig.lib.json",
+              "libs/state/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/state/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/state/jest.config.js",
+            "tsConfig": "libs/state/tsconfig.spec.json",
+            "setupFile": "libs/state/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

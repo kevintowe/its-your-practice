@@ -16,6 +16,15 @@
     },
     "types": {
       "tags": []
+    },
+    "shared": {
+      "tags": []
+    },
+    "poses": {
+      "tags": []
+    },
+    "state": {
+      "tags": []
     }
   }
 }

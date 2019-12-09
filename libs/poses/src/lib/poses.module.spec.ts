@@ -1,14 +1,14 @@
 import { async, TestBed } from '@angular/core/testing';
-import { TypesModule } from './types.module';
+import { PosesModule } from './poses.module';
 
-describe('TypesModule', () => {
+describe('PosesModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [TypesModule]
+      imports: [PosesModule]
     }).compileComponents();
   }));
 
   it('should create', () => {
-    expect(TypesModule).toBeDefined();
+    expect(PosesModule).toBeDefined();
   });
 });

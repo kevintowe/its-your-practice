@@ -1,0 +1,18 @@
+<mat-list role="list">
+  <div *ngFor="let pose of poses$ | async">
+    <mat-list-item role="listitem" (dblclick)="editPose(pose)">
+      <h3 matLine *ngIf="!(primarySanskrit$ | async); else displaySanName">
+        {{ pose.name }}
+      </h3>
+      <ng-template #displaySanName>
+        <h3 matLine>
+          {{ pose.sanskritName }}
+        </h3>
+      </ng-template>
+      <p matLine>
+        {{ pose.description }}
+      </p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </div>
+</mat-list>
