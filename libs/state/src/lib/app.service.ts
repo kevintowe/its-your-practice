@@ -1,10 +1,13 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Pose } from '@its-your-practice/types';
+import { MatDialog } from '@angular/material';
+
 import { BehaviorSubject, of } from 'rxjs';
-import { AuthService } from './auth/auth.service';
+import { switchMap } from 'rxjs/operators';
 import { SubSink } from 'subsink';
-import { switchMap, tap } from 'rxjs/operators';
+
+import { AuthService } from './auth/auth.service';
+import { Pose } from '@its-your-practice/types';
 
 @Injectable({ providedIn: 'root' })
 export class AppService implements OnDestroy {
@@ -40,9 +43,11 @@ export class AppService implements OnDestroy {
   // Classes
   //
 
-  constructor(private afs: AngularFirestore, private authService: AuthService) {
-
-  }
+  constructor(
+    private afs: AngularFirestore,
+    private authService: AuthService,
+    private matDialog: MatDialog
+  ) { }
 
   ngOnDestroy() {
     this.subs.unsubscribe();
@@ -53,15 +58,16 @@ export class AppService implements OnDestroy {
    */
 
   initializeService() {
-    this.subs.sink = this.authService.user$.pipe(
-      switchMap(user => {
-        if (user) {
-          return this.POSES_DB_REF.valueChanges({ idField: 'id' });
-        } else {
-          return of(null);
-        }
-      })
-    )
+    this.subs.sink = this.authService.user$
+      .pipe(
+        switchMap(user => {
+          if (user) {
+            return this.POSES_DB_REF.valueChanges({ idField: 'id' });
+          } else {
+            return of(null);
+          }
+        })
+      )
       .subscribe(poses => {
         if (poses) {
           this.poseStore.next(poses);
@@ -85,8 +91,8 @@ export class AppService implements OnDestroy {
     await this.POSES_DB_REF.add(pose);
   }
 
-  async updatePose(pose: Pose) {
-    console.log(pose.description);
+  async persistPose(pose: Pose) {
+    console.log(pose);
     await this.POSES_DB_REF.doc(pose.id).update(pose);
   }
 

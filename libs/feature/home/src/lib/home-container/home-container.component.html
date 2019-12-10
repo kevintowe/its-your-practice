@@ -24,7 +24,7 @@
   </button>
 </mat-toolbar>
 
-<mat-tab-group mat-align-tabs="center">
+<mat-tab-group mat-align-tabs="center" (selectedTabChange)="tabChange($event)">
   <mat-tab label="Poses"></mat-tab>
   <mat-tab label="Sequences"></mat-tab>
   <mat-tab label="Classes"></mat-tab>

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { SharedModule } from '@its-your-practice/shared'
 import { PosesHomeComponent } from './containers';
 import { PosesModule } from './poses.module';
+import { SharedModule } from '@its-your-practice/shared';
 
 @NgModule({
   declarations: [PosesHomeComponent],

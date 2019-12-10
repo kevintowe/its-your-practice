@@ -1,14 +1,9 @@
-/**
- * Core container
- * 
- * NOTE: there is another component called `PosesComponent`, but
- * it is a list view of poses, whilest this component is the core container
- * for the poses feature module.
- */
-
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 
 import { AppService } from '@its-your-practice/state';
+import { Pose } from '@its-your-practice/types';
+import { PoseFormDialogComponent } from '../../components';
 
 @Component({
   selector: 'its-your-practice-poses-home',
@@ -18,10 +13,26 @@ import { AppService } from '@its-your-practice/state';
 export class PosesHomeComponent implements OnInit {
   poses = this.appService.poses$;
 
-  constructor(public appService: AppService) { }
+  constructor(public appService: AppService, private matDialog: MatDialog) { }
 
   ngOnInit() {
 
+  }
+
+  async onUpdatePose(pose: Pose) {
+    const dialogRef = this.matDialog.open(PoseFormDialogComponent, {
+      data: pose,
+      width: '400px'
+    });
+    dialogRef.afterClosed().subscribe(async (updatedPose: Pose) => {
+      if (updatedPose) {
+        try {
+          this.appService.persistPose(updatedPose);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    });
   }
 
 }

@@ -2,6 +2,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
+
 import { first, map, tap } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SubSink } from 'subsink';

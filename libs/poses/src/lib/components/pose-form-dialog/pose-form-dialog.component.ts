@@ -5,8 +5,9 @@ import {
   Inject
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { FormService } from '@its-your-practice/shared';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
+import { FormService } from '@its-your-practice/shared';
 import { Pose, PoseTypesUI } from '@its-your-practice/types';
 
 @Component({
@@ -54,7 +55,6 @@ export class PoseFormDialogComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.controls['type'].value);
     const obj = {
       id: this.form.controls['id'].value,
       name: this.form.controls['name'].value,

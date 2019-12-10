@@ -1,1 +1,5 @@
-<its-your-practice-poses [poses]="poses | async"> </its-your-practice-poses>
+<its-your-practice-poses
+  [poses]="poses | async"
+  (editPose)="onUpdatePose($event)"
+>
+</its-your-practice-poses>

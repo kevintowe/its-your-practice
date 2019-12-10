@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { SubSink } from 'subsink';
-import { User } from '@its-your-practice/types';
-import { BehaviorSubject, of } from 'rxjs';
-import { AuthService } from './auth.service';
-import { switchMap } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
+
+import { BehaviorSubject, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { SubSink } from 'subsink';
+
+import { User } from '@its-your-practice/types';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
