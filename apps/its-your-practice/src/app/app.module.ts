@@ -21,7 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
-import { AppService } from '@its-your-practice/state';
+import { AppService, AuthService } from '@its-your-practice/state';
 
 @NgModule({
   declarations: [AppComponent],
@@ -50,7 +50,7 @@ import { AppService } from '@its-your-practice/state';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(appService: AppService) {
-    appService.initializeService();
+  constructor(private authService: AuthService, appService: AppService) {
+
   }
 }

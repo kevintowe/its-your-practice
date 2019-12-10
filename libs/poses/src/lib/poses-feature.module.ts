@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PosesComponent } from './containers';
+
+import { SharedModule } from '@its-your-practice/shared'
+import { PosesHomeComponent } from './containers';
+import { PosesModule } from './poses.module';
 
 @NgModule({
-  declarations: [PosesComponent],
+  declarations: [PosesHomeComponent],
   imports: [
+    SharedModule,
     RouterModule.forChild([
       {
         path: '',
-        component: PosesComponent
+        component: PosesHomeComponent
       }
-    ])
+    ]),
+    PosesModule
   ]
 })
-export class PosesModule { }
+export class PosesFeatureModule { }

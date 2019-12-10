@@ -2,7 +2,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Pose } from '@its-your-practice/types';
 import { BehaviorSubject, of } from 'rxjs';
-import { AuthService } from './auth.service';
+import { AuthService } from './auth/auth.service';
 import { SubSink } from 'subsink';
 import { switchMap, tap } from 'rxjs/operators';
 
@@ -82,12 +82,12 @@ export class AppService implements OnDestroy {
   //
 
   async createPose(pose: Pose) {
-    await this._poses.add(pose);
+    await this.POSES_DB_REF.add(pose);
   }
 
   async updatePose(pose: Pose) {
     console.log(pose.description);
-    await this._poses.doc(pose.id).update(pose);
+    await this.POSES_DB_REF.doc(pose.id).update(pose);
   }
 
   //

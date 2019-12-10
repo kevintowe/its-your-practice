@@ -1,4 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import { first, map, tap } from 'rxjs/operators';
@@ -6,6 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { SubSink } from 'subsink';
 
 import { User } from '@its-your-practice/types';
+import { UserService } from './user.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService implements OnDestroy {
@@ -14,7 +16,11 @@ export class AuthService implements OnDestroy {
 
   private subs = new SubSink();
 
-  constructor(private afs: AngularFireAuth) {
+  constructor(
+    private afs: AngularFireAuth,
+    private router: Router,
+    private userService: UserService
+  ) {
     this.subs.sink = this.afs.authState
       .pipe(
         map(user => {
@@ -58,10 +64,26 @@ export class AuthService implements OnDestroy {
   async loginWithGoolge() {
     const provider = new firebase.auth.GoogleAuthProvider();
     const credential = await this.afs.auth.signInWithPopup(provider);
+
+    // if new user, persist in database
+    if (credential.additionalUserInfo.isNewUser) {
+      try {
+        await this.userService.saveFirstTimeUser(
+          credential.user.uid,
+          credential.user.displayName
+        );
+      } catch (err) { }
+    }
+
     return credential.user.displayName;
   }
 
   async logout() {
-    return this.afs.auth.signOut();
+    try {
+      await this.afs.auth.signOut();
+      await this.router.navigate(['/landing']);
+    } catch (err) {
+      return err;
+    }
   }
 }

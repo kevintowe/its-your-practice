@@ -2,7 +2,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Pose } from '@its-your-practice/types';
 import { BehaviorSubject, of } from 'rxjs';
-import { AuthService } from './auth.service';
+import { AuthService } from './auth/auth.service';
 import { SubSink } from 'subsink';
 import { switchMap, tap } from 'rxjs/operators';
 
@@ -19,9 +19,7 @@ export class PosesService implements OnDestroy {
     private afs: AngularFirestore,
     private authService: AuthService
   ) {
-    this.authService.user$.pipe(switchMap() => {
 
-    })
   }
 
   ngOnDestroy() {

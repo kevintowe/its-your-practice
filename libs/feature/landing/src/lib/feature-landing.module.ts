@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Route } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
-export const featureLandingRoutes: Route[] = [];
+import { SharedModule } from '@its-your-practice/shared'
+import { LandingContainerComponent } from './landing-container/landing-container.component';
 
 @NgModule({
-  imports: [CommonModule, RouterModule]
+  imports: [SharedModule, RouterModule.forChild([
+    {
+      path: '',
+      component: LandingContainerComponent
+    }
+  ])],
+  declarations: [LandingContainerComponent]
 })
-export class FeatureLandingModule {}
+export class FeatureLandingModule { }

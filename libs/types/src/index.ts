@@ -71,6 +71,6 @@ export interface Class {
 
 export interface User {
   name: string;
-  userId: string;
+  userId?: string;
   photoUrl?: string;
 }

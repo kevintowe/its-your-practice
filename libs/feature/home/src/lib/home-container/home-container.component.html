@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <span>
+    It's Your Practice
+  </span>
+  <span class="spacer"> </span>
+
+  <button
+    class="san-button"
+    mat-stroked-button
+    color="secondary"
+    (click)="toggleLang()"
+  >
+    Toggle Sanskrit Names
+  </button>
+
+  <button
+    mat-stroked-button
+    color="accent"
+    aria-label="Logout"
+    (click)="logout()"
+  >
+    Logout
+    <!-- <mat-icon>exit_to_app</mat-icon> -->
+  </button>
+</mat-toolbar>
+
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Poses"></mat-tab>
+  <mat-tab label="Sequences"></mat-tab>
+  <mat-tab label="Classes"></mat-tab>
+</mat-tab-group>
+
+<router-outlet></router-outlet>

@@ -1,7 +1,28 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
+import { SharedModule } from '@its-your-practice/shared';
+import { HomeContainerComponent } from './home-container';
 
 @NgModule({
-  imports: [CommonModule]
+  imports: [
+    SharedModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: HomeContainerComponent,
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('@its-your-practice/poses').then(
+                mod => mod.PosesFeatureModule
+              )
+          }
+        ]
+      }
+    ])
+  ],
+  declarations: [HomeContainerComponent]
 })
-export class FeatureHomeModule {}
+export class FeatureHomeModule { }
