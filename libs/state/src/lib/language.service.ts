@@ -5,10 +5,10 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class LanguageService implements OnDestroy {
   private subs = new SubSink();
-
   private primarySanskrit = false;
   private langStore = new BehaviorSubject<boolean>(false);
-  public primarySanskrit$ = this.langStore.asObservable();
+
+  primarySanskrit$ = this.langStore.asObservable();
 
   constructor() { }
 
