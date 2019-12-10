@@ -19,7 +19,11 @@
       "@its-your-practice/types": ["libs/types/src/index.ts"],
       "@its-your-practice/shared": ["libs/shared/src/index.ts"],
       "@its-your-practice/poses": ["libs/poses/src/index.ts"],
-      "@its-your-practice/state": ["libs/state/src/index.ts"]
+      "@its-your-practice/state": ["libs/state/src/index.ts"],
+      "@its-your-practice/feature/home": ["libs/feature/home/src/index.ts"],
+      "@its-your-practice/feature/landing": [
+        "libs/feature/landing/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

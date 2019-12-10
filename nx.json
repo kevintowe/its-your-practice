@@ -25,6 +25,12 @@
     },
     "state": {
       "tags": []
+    },
+    "feature-home": {
+      "tags": []
+    },
+    "feature-landing": {
+      "tags": []
     }
   }
 }

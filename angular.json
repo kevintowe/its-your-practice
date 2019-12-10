@@ -230,6 +230,60 @@
         }
       },
       "schematics": {}
+    },
+    "feature-home": {
+      "projectType": "library",
+      "root": "libs/feature/home",
+      "sourceRoot": "libs/feature/home/src",
+      "prefix": "its-your-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/home/tsconfig.lib.json",
+              "libs/feature/home/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature/home/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/home/jest.config.js",
+            "tsConfig": "libs/feature/home/tsconfig.spec.json",
+            "setupFile": "libs/feature/home/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "feature-landing": {
+      "projectType": "library",
+      "root": "libs/feature/landing",
+      "sourceRoot": "libs/feature/landing/src",
+      "prefix": "its-your-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/landing/tsconfig.lib.json",
+              "libs/feature/landing/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature/landing/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/landing/jest.config.js",
+            "tsConfig": "libs/feature/landing/tsconfig.spec.json",
+            "setupFile": "libs/feature/landing/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
