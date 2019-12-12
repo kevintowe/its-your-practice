@@ -18,6 +18,13 @@ import { HomeContainerComponent } from './home-container';
               import('@its-your-practice/poses').then(
                 mod => mod.PosesFeatureModule
               )
+          },
+          {
+            path: 'sequences',
+            loadChildren: () =>
+              import('@its-your-practice/sequences').then(
+                mod => mod.SequencesFeatureModule
+              )
           }
         ]
       }

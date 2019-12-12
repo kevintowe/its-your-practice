@@ -1,0 +1,14 @@
+<div *ngIf="sequence$ | async as sequence" class="text-center">
+  <p>{{ sequence.name }}</p>
+  <p>{{ sequence.description }}</p>
+
+  <button mat-stroked-button (click)="addStep()">Add Step</button>
+
+  <its-your-practice-pose-picker></its-your-practice-pose-picker>
+
+  <!-- <its-your-practice-sequence-step
+    *ngFor="let step of steps$ | async"
+    [step]="step"
+    (saveStep)="saveStep($event)"
+  ></its-your-practice-sequence-step> -->
+</div>

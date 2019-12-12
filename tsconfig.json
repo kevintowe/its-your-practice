@@ -23,7 +23,8 @@
       "@its-your-practice/feature/home": ["libs/feature/home/src/index.ts"],
       "@its-your-practice/feature/landing": [
         "libs/feature/landing/src/index.ts"
-      ]
+      ],
+      "@its-your-practice/sequences": ["libs/sequences/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,0 +1,5 @@
+.example-container {
+  flex: 1 1 auto;
+  height: 300px;
+  border: 1px solid #555;
+}

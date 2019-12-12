@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 
 import { Pose } from '@its-your-practice/types';
+import { LanguageService } from '@its-your-practice/state';
 
 @Component({
   selector: 'its-your-practice-poses',
@@ -21,7 +22,7 @@ export class PosesComponent implements OnInit {
 
   @Output() editPose = new EventEmitter<Pose>();
 
-  constructor() {
+  constructor(public langService: LanguageService) {
 
   }
 

@@ -4,19 +4,7 @@ export interface Pose {
   abbr?: string;
   sanskritName?: string;
   description?: string;
-  type?: {
-    standing?: boolean;
-    armBalance?: boolean;
-    inversion?: boolean;
-    backbend?: boolean;
-    forwardFold?: boolean;
-    seated?: boolean;
-    restorative?: boolean;
-    twist?: boolean;
-    balancing?: boolean;
-    chestOpener?: boolean;
-    binding?: boolean;
-  };
+  type?: string[];
   ashtangaSeries?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
@@ -35,7 +23,8 @@ export const PoseTypesUI = [
   { Twist: 'twist' },
   { Balancing: 'balancing' },
   { 'Chest Opener': 'chestOpener' },
-  { Binding: 'binding' }
+  { Binding: 'binding' },
+  { Kneeling: 'kneeling' }
 ];
 
 export class PoseBase implements Pose {
@@ -58,8 +47,13 @@ export class PoseBase implements Pose {
 export interface Sequence {
   id?: string;
   name?: string;
+  peakPose?: Array<Pose>
   description?: string;
-  poses: Pose[];
+  steps?: SequenceStep[];
+}
+export interface SequenceStep {
+  breaths?: number;
+  pose?: Pose;
 }
 
 export interface Class {

@@ -1,0 +1,16 @@
+<div *ngIf="sequenceStep$ | async as seqStep">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ seqStep.pose.name }}
+      </mat-panel-title>
+
+      <mat-panel-description>
+        {{ step.breaths }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-action-row>
+      <button mat-button>Save</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</div>

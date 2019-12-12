@@ -83,10 +83,7 @@
               "apps/its-your-practice/tsconfig.app.json",
               "apps/its-your-practice/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/its-your-practice/**"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/its-your-practice/**"]
           }
         },
         "test": {
@@ -120,13 +117,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/its-your-practice-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/its-your-practice-e2e/**"
-            ]
+            "tsConfig": ["apps/its-your-practice-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/its-your-practice-e2e/**"]
           }
         }
       }
@@ -144,10 +136,7 @@
               "libs/types/tsconfig.lib.json",
               "libs/types/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/types/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/types/**"]
           }
         },
         "test": {
@@ -174,10 +163,7 @@
               "libs/shared/tsconfig.lib.json",
               "libs/shared/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/shared/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/shared/**"]
           }
         },
         "test": {
@@ -204,10 +190,7 @@
               "libs/poses/tsconfig.lib.json",
               "libs/poses/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/poses/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/poses/**"]
           }
         },
         "test": {
@@ -234,10 +217,7 @@
               "libs/state/tsconfig.lib.json",
               "libs/state/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/state/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/state/**"]
           }
         },
         "test": {
@@ -264,10 +244,7 @@
               "libs/feature/home/tsconfig.lib.json",
               "libs/feature/home/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/feature/home/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/feature/home/**"]
           }
         },
         "test": {
@@ -294,10 +271,7 @@
               "libs/feature/landing/tsconfig.lib.json",
               "libs/feature/landing/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/feature/landing/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/feature/landing/**"]
           }
         },
         "test": {
@@ -306,6 +280,33 @@
             "jestConfig": "libs/feature/landing/jest.config.js",
             "tsConfig": "libs/feature/landing/tsconfig.spec.json",
             "setupFile": "libs/feature/landing/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "sequences": {
+      "projectType": "library",
+      "root": "libs/sequences",
+      "sourceRoot": "libs/sequences/src",
+      "prefix": "its-your-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/sequences/tsconfig.lib.json",
+              "libs/sequences/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/sequences/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/sequences/jest.config.js",
+            "tsConfig": "libs/sequences/tsconfig.spec.json",
+            "setupFile": "libs/sequences/src/test-setup.ts"
           }
         }
       },

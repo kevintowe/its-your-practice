@@ -1,0 +1,1 @@
+export * from './sequences-home/sequences-home.component';

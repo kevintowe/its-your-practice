@@ -1,0 +1,19 @@
+<div *ngIf="!sequences; else elseBlock"></div>
+<ng-template #elseBlock>
+  <mat-list role="list">
+    <div
+      *ngFor="let sequence of sequences"
+      (click)="sequenceSelected(sequence.id)"
+    >
+      <mat-list-item role="listitem">
+        <h3 matLine>
+          {{ sequence.name }}
+        </h3>
+        <p matLine>
+          {{ sequence.description }}
+        </p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </div>
+  </mat-list>
+</ng-template>

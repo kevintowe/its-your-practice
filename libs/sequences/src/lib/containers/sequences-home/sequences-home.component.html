@@ -1,0 +1,13 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <button mat-stroked-button color="primary" (click)="onCreateSequence()">
+      Create New Sequence
+    </button>
+    <its-your-practice-sequences-list
+      [sequences]="appService.sequences$ | async"
+    ></its-your-practice-sequences-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <its-your-practice-sequence-builder></its-your-practice-sequence-builder>
+  </mat-drawer-content>
+</mat-drawer-container>

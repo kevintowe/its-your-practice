@@ -1,0 +1,25 @@
+<form [formGroup]="form">
+  <div class="form-container">
+    <mat-form-field>
+      <input matInput placeholder="Sequence Name" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+        matInput
+        placeholder="Description"
+        formControlName="description"
+      >
+      </textarea>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onSubmit()"
+      [disabled]="form.invalid"
+    >
+      Submit New Sequence
+    </button>
+  </div>
+</form>

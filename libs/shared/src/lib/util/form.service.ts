@@ -9,8 +9,6 @@ export class FormService {
   buildPoseForm(pose?: Pose) {
     const form = {} as any;
 
-    console.log(pose);
-
     form['name'] = [pose ? pose.name : '', [Validators.required]];
     form['abbr'] = [pose ? pose.abbr : ''];
     form['sanskritName'] = [pose ? pose.sanskritName : ''];
@@ -18,6 +16,15 @@ export class FormService {
     form['ashtangaSeries'] = [pose ? pose.ashtangaSeries : null];
     form['id'] = [pose ? pose.id : null];
     form['type'] = [pose ? pose.type : null]
+
+    return this.fb.group(form) as FormGroup;
+  }
+
+  buildNewSequenceForm() {
+    const form = {} as any;
+
+    form['name'] = ['', Validators.required];
+    form['description'] = ['']
 
     return this.fb.group(form) as FormGroup;
   }
