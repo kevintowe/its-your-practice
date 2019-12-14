@@ -20,13 +20,18 @@ const appRoutes: Routes = [
     data: { authGuardPipe: authUserGoesToHome }
   },
   {
-    path: '',
+    path: 'home',
     loadChildren: () =>
       import('@its-your-practice/feature/home').then(
         mod => mod.FeatureHomeModule
       ),
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: unAuthUserGoesToLanding }
+  },
+  {
+    path: '',
+    redirectTo: '/home/poses',
+    pathMatch: 'full'
   }
 ];
 

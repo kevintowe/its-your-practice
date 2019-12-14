@@ -4,13 +4,17 @@
   </span>
   <span class="spacer"> </span>
 
+  <!-- <button class="san-button" mat-stroked-button (click)="toggleLang()">
+    Toggle Sanskrit Names
+  </button> -->
   <button
     class="san-button"
-    mat-stroked-button
     color="secondary"
     (click)="toggleLang()"
+    mat-icon-button
+    aria-label="Toggle sanskrit names"
   >
-    Toggle Sanskrit Names
+    <mat-icon>swap_horiz</mat-icon>
   </button>
 
   <button

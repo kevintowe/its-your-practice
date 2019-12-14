@@ -17,11 +17,11 @@ export class HomeContainerComponent implements OnInit, OnDestroy {
 
   navLink = [
     {
-      path: '',
+      path: './poses',
       label: 'Poses'
     },
     {
-      path: 'sequences',
+      path: './sequences',
       label: 'Sequences'
     },
     {

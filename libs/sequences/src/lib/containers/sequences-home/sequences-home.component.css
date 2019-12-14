@@ -1,5 +1,28 @@
-.example-container {
-  flex: 1 1 auto;
-  height: 300px;
-  border: 1px solid #555;
+.container {
+  display: flex;
+  flex-direction: column;
+  /* position: absolute; */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
 }
+
+.is-mobile .toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.is-mobile .sidenav-container {
+  flex: 1 0 auto;
+}
+
+/* .container {
+  height: 100%;
+  background: #eee;
+} */

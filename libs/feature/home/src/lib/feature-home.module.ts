@@ -15,7 +15,7 @@ import { PosesModule } from '@its-your-practice/poses';
         component: HomeContainerComponent,
         children: [
           {
-            path: '',
+            path: 'poses',
             loadChildren: () =>
               import('@its-your-practice/poses').then(
                 mod => mod.PosesFeatureModule
@@ -27,6 +27,11 @@ import { PosesModule } from '@its-your-practice/poses';
               import('@its-your-practice/sequences').then(
                 mod => mod.SequencesFeatureModule
               )
+          },
+          {
+            path: '',
+            redirectTo: 'poses',
+            pathMatch: 'full'
           }
         ]
       }

@@ -1,16 +1,13 @@
-<mat-toolbar color="secondary">
-  <div class="row">
-    <div class="col-lg-12">
-      <button
-        mat-stroked-button
-        color="primary"
-        class="float-right"
-        (click)="onCreatePose()"
-      >
-        Create New Pose
-      </button>
-    </div>
-  </div>
+<mat-card>
+  <button
+    mat-stroked-button
+    color="primary"
+    class="float-right"
+    (click)="onCreatePose()"
+  >
+    Create New Pose
+  </button>
+
   <mat-form-field class="filter-container" hintLabel="English names only">
     <input matInput placeholder="Search Poses" [formControl]="searchControl" />
   </mat-form-field>
@@ -26,7 +23,23 @@
       </div>
     </mat-select>
   </mat-form-field>
-</mat-toolbar>
+</mat-card>
+
+<!-- <mat-toolbar color="secondary">
+  <div class="row">
+    <div class="col-lg-12">
+      <button
+        mat-stroked-button
+        color="primary"
+        class="float-right"
+        (click)="onCreatePose()"
+      >
+        Create New Pose
+      </button>
+    </div>
+  </div>
+
+</mat-toolbar> -->
 
 <its-your-practice-poses
   [poses]="poses$ | async"
