@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@its-your-practice/shared';
 
+import { PosesModule } from '@its-your-practice/poses'
+
 import {
   SequencesListComponent,
   NewSequenceDialogComponent,
@@ -26,7 +28,7 @@ const COMPONENTS = [
 const ENTRY_COMPONENTS = [NewSequenceDialogComponent];
 
 @NgModule({
-  imports: [SharedModule],
+  imports: [SharedModule, PosesModule],
   declarations: [COMPONENTS],
   exports: COMPONENTS,
   entryComponents: ENTRY_COMPONENTS

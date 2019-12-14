@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
-import { AppService } from '@its-your-practice/state';
+import { AppService, PoseDetailEditor } from '@its-your-practice/state';
 import { Pose, PoseTypesUI } from '@its-your-practice/types';
 import { PoseFormDialogComponent } from '../../components';
 import { Observable } from 'rxjs';
@@ -30,7 +30,8 @@ export class PosesHomeComponent implements OnInit {
   constructor(
     public appService: AppService,
     private matDialog: MatDialog,
-    public posesHomeService: PosesHomeService
+    public posesHomeService: PosesHomeService,
+    private poseEditor: PoseDetailEditor
   ) { }
 
   ngOnInit() {
@@ -41,34 +42,36 @@ export class PosesHomeComponent implements OnInit {
   }
 
   async onCreatePose() {
-    const dialogRef = this.matDialog.open(PoseFormDialogComponent, {
-      data: null,
-      width: '400px'
-    });
-    dialogRef.afterClosed().subscribe(async (newPose: Pose) => {
-      if (newPose) {
-        try {
-          this.appService.createPose(newPose);
-        } catch (err) {
-          console.log(err);
-        }
-      }
-    });
+    await this.poseEditor.openEditor(null);
+    // const dialogRef = this.matDialog.open(PoseFormDialogComponent, {
+    //   data: null,
+    //   width: '400px'
+    // });
+    // dialogRef.afterClosed().subscribe(async (newPose: Pose) => {
+    //   if (newPose) {
+    //     try {
+    //       this.appService.createPose(newPose);
+    //     } catch (err) {
+    //       console.log(err);
+    //     }
+    //   }
+    // });
   }
 
   async onUpdatePose(pose: Pose) {
-    const dialogRef = this.matDialog.open(PoseFormDialogComponent, {
-      data: pose,
-      width: '400px'
-    });
-    dialogRef.afterClosed().subscribe(async (updatedPose: Pose) => {
-      if (updatedPose) {
-        try {
-          this.appService.persistPose(updatedPose);
-        } catch (err) {
-          console.log(err);
-        }
-      }
-    });
+    await this.poseEditor.openEditor(pose);
+    // const dialogRef = this.matDialog.open(PoseFormDialogComponent, {
+    //   data: pose,
+    //   width: '400px'
+    // });
+    // dialogRef.afterClosed().subscribe(async (updatedPose: Pose) => {
+    //   if (updatedPose) {
+    //     try {
+    //       this.appService.persistPose(updatedPose);
+    //     } catch (err) {
+    //       console.log(err);
+    //     }
+    //   }
+    // });
   }
 }

@@ -57,4 +57,8 @@ export class PosePickerComponent
   resetComponent() {
     this.store.next(null);
   }
+
+  createNewPose() {
+
+  }
 }

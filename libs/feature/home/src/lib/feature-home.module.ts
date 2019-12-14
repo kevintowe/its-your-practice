@@ -3,6 +3,8 @@ import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '@its-your-practice/shared';
 import { HomeContainerComponent } from './home-container';
+// tslint:disable-next-line: nx-enforce-module-boundaries
+import { PosesModule } from '@its-your-practice/poses';
 
 @NgModule({
   imports: [
@@ -28,7 +30,8 @@ import { HomeContainerComponent } from './home-container';
           }
         ]
       }
-    ])
+    ]),
+    PosesModule
   ],
   declarations: [HomeContainerComponent]
 })

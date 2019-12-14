@@ -112,11 +112,14 @@ export class AppService implements OnDestroy {
   //
 
   async createPose(pose: Pose) {
-    await this.POSES_DB_REF.add(pose);
+    return await this.POSES_DB_REF.add(pose).then(newlyCreatedPose => {
+      return newlyCreatedPose.get().then(docRef => docRef.data() as Pose)
+    })
   }
 
   async persistPose(pose: Pose) {
     await this.POSES_DB_REF.doc(pose.id).update(pose);
+    return pose;
   }
 
   //
