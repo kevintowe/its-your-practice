@@ -40,7 +40,7 @@ export class HomeContainerComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.subs.sink = this.poseEditorService.poseEditor$.subscribe(pose => {
+    this.subs.sink = this.poseEditorService.editor$.subscribe(pose => {
       this.openPoseDialog(pose);
     })
   }
@@ -64,9 +64,9 @@ export class HomeContainerComponent implements OnInit, OnDestroy {
 
     dialogRef.afterClosed().subscribe(async (editedPose: Pose) => {
       if (editedPose) {
-        this.poseEditorService.persistPose(editedPose);
+        this.poseEditorService.persistEntity(editedPose);
       } else {
-        this.poseEditorService.persistPose(null);
+        this.poseEditorService.persistEntity(null);
       }
     })
   }
