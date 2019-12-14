@@ -16,6 +16,7 @@
     <mat-option
       *ngFor="let pose of filteredPoses$ | async as poses"
       [value]="pose.name"
+      (click)="store.next(pose)"
     >
       {{ pose.name }}
     </mat-option>

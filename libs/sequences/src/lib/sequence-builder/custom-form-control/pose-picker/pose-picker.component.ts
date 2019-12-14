@@ -8,7 +8,7 @@ import {
 import { Pose } from '@its-your-practice/types';
 import { SubSink } from 'subsink';
 import { BehaviorSubject, Observable, combineLatest, of } from 'rxjs';
-import { AppService } from '@its-your-practice/state';
+import { AppService, PoseDetailEditor } from '@its-your-practice/state';
 import { startWith, map, switchMap } from 'rxjs/operators';
 import { ModifyDataStreams } from '@its-your-practice/state';
 
@@ -20,7 +20,7 @@ import { ModifyDataStreams } from '@its-your-practice/state';
 export class PosePickerComponent
   implements OnInit, OnDestroy, ControlValueAccessor {
   // Private component state
-  private store = new BehaviorSubject<Pose>(null);
+  public store = new BehaviorSubject<Pose>(null);
   public activePose$ = this.store.asObservable();
   private subs = new SubSink();
 
@@ -41,7 +41,7 @@ export class PosePickerComponent
   registerOnTouched(fn: any): void { }
   setDisabledState?(isDisabled: boolean): void { }
 
-  constructor(private fb: FormBuilder, private dataStreams: ModifyDataStreams) {
+  constructor(private fb: FormBuilder, private dataStreams: ModifyDataStreams, private poseEditor: PoseDetailEditor) {
     this.subs.sink = this.activePose$.subscribe(val => { });
   }
 
@@ -58,7 +58,10 @@ export class PosePickerComponent
     this.store.next(null);
   }
 
-  createNewPose() {
-
+  async createNewPose() {
+    const pose = await this.poseEditor.openEditor(null)
+    if (pose) {
+      this.store.next(pose);
+    }
   }
 }
